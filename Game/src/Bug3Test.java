@@ -11,7 +11,7 @@ import org.junit.Test;
 public class Bug3Test
 {
 	//Declares variables
-	private static Game game_;
+	private static Game testGame_;
 	
 	private static Dice die1_;
 	private static Dice die2_;
@@ -25,7 +25,7 @@ public class Bug3Test
 		die1_ = mock(Dice.class);
 	    die2_ = mock(Dice.class);
 	    die3_ = mock(Dice.class);
-		player_ = new Player("Camo", 117);	
+		player_ = new Player("TEST", 50);	
 	}
 
 	//Test Bug 3
@@ -36,26 +36,31 @@ public class Bug3Test
 	    when(die2_.getValue()).thenReturn(DiceValue.getRandom());
 	    when(die3_.getValue()).thenReturn(DiceValue.getRandom());
 
-	    game_ = new Game(die1_, die2_, die3_);
+	    testGame_ = new Game(die1_, die2_, die3_);
 	    System.out.println("Player: " + player_.getName());
 	    System.out.println("Start Balance: " + player_.getBalance());
 	    
-	    DiceValue selection = DiceValue.SPADE;
+	    DiceValue selection = DiceValue.CROWN;
 	    int balance = player_.getBalance();
 	    int bet = 10;
-	    int winning = game_.playRound(player_, selection, bet);
+	    int winning = testGame_.playRound(player_, selection, bet);
 	  
-	    System.out.println("Bet: " + bet);
 	    System.out.println("Selected: " + selection);
+	    int betBalance = (balance - bet);
+	    System.out.println("New Balance: " + betBalance);
 	    System.out.println();
 	    
-	    int withoutBet = (balance - bet);
-	    System.out.println("Balance without bet: " + withoutBet);
-	    System.out.println("Rolled: " + game_.getDiceValues());
+	    System.out.println("Rolled: " + testGame_.getDiceValues());
 	    System.out.println("Winnings: " + winning);
-	    System.out.println("Given: Winnings " + winning + " and Bet " + bet);
-	    System.out.println("The balance after one match is: " + player_.getBalance());
+	    System.out.println("Awarded: Winnings " + winning + " and Bet " + bet);
+	    
+	    int totalWin = winning + bet;
+	    System.out.println("Total Winning: " + totalWin);
 	    System.out.println();
+	    
+	    System.out.println("But the total balance after 1 match is: " + player_.getBalance());
+	    System.out.println("The player has lost: " + bet);
+	    System.out.println("*****************************************");
 	}
 	
 	//After method resets variables

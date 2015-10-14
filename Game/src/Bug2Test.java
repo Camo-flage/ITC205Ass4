@@ -8,31 +8,43 @@ import org.junit.Test;
 
 public class Bug2Test
 {
-	//Declared Variable
+	//Declared variables
 	private static Player player_;
 	
 	//Set Up for testing
 	@Before
 	public void setUp() throws Exception
 	{
-	    player_ = new Player("Test", 0);
+		player_ = new Player("TEST", 0);
 	}
 
 	//Testing Bug 2
 	@Test
 	public void testingBug2()
 	{	
-		int bet = 10;
+		int bet = 5;
 		System.out.println("The bet for all players is: " + bet);
 		System.out.println();
 		
-	    player_ = new Player("George", 50);
+	    player_ = new Player("George", 10);
 	    System.out.println(player_.getName() + ":");
 	    System.out.println("Balance: " + player_.getBalance());
 	    System.out.println("Does this Balance exceed the limit? " + player_.balanceExceedsLimitBy(bet));
 	    System.out.println();
 	    
-	    player_ = new Player("Angus", 10);
+	    player_ = new Player("Bianca", 6);
+	    System.out.println(player_.getName() + ":");
+	    System.out.println("Balance: " + player_.getBalance());
+	    System.out.println("Does this Balance exceed the limit? " + player_.balanceExceedsLimitBy(bet));
+	    System.out.println();
+	    
+	    player_ = new Player("Angus", 5);
+	    System.out.println(player_.getName() + ":");
+	    System.out.println("Balance: " + player_.getBalance());
+	    System.out.println("Does this Balance exceed the limit? " + player_.balanceExceedsLimitBy(bet));
+	    System.out.println();
+	    
+	    player_ = new Player("Steve", 4);
 	    System.out.println(player_.getName() + ":");
 	    System.out.println("Balance: " + player_.getBalance());
 	    System.out.println("Does this Balance exceed the limit? " + player_.balanceExceedsLimitBy(bet));
