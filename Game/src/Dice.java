@@ -10,8 +10,9 @@ public class Dice {
 		return value;
 	}
 
+	//Bug 3 Location (resolved)
 	public DiceValue roll() {
-		return DiceValue.getRandom();
+		return value = DiceValue.getRandom();
 	}		
 	
 	public String toString() {

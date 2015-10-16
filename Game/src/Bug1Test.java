@@ -25,7 +25,7 @@ public class Bug1Test
 		die1_ = mock(Dice.class);
 		die2_ = mock(Dice.class);
 		die3_ = mock(Dice.class);
-		player_ = new Player("TEST", 0);
+		player_ = new Player("TEST", 50);
 	}
 	
 	//Test Method on Game 1

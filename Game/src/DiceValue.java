@@ -21,8 +21,9 @@ public enum DiceValue {
 		return VALUE_REPR_MAP.get(value);
 	}
 	
+	//Bug 3 Location (resolved)
 	public static DiceValue getRandom() {
-		int random = RANDOM.nextInt(DiceValue.SPADE.ordinal());
+		int random = RANDOM.nextInt(DiceValue.SPADE.ordinal() + 1);
 		return values()[random];
 	}
 	
